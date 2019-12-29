@@ -3,10 +3,11 @@
 """
 from random import randint
 
-#binomial opinion modeling
-#x in X can only take on True or False
+
 props = ("The sky is red.", "Socrates was a man.", "2+2=4", "Icecream tastes good.", "It's not the case that I'm not going bald.", "The human torch was denied a bank loan.")
 
+#binomial opinion modeling
+#x in X can only take on True or False
 #random and manual domain generation
 domain = {x:bool(randint(0,1)) for x in props}
 domain = {props[0]:False, props[1]:True, props[2]:True, props[3]:True, props[4]:False, props[5]:False}
@@ -19,9 +20,9 @@ actors = ("Me", "Einstein")
 #model the constraing of bx,dx,ux,ax in [0,1] with ints to prevent floating point headaches, so
 #we'll discretize to the hundredths place and use [0,100] as ints instead.  Might not be viable
 #for actual application, but that's an architectural and implementation detail, not a conceptual
-#one
+#one relevant to the engine prototype, at this time.
 #
-#we can make things more usable by defining smart defaults; e.g., have bx=100 be the default if more props in the domain
+#we can make things more usable by defining smart defaults; e.g., have ax=100 be the default if more props in the domain
 #are True than False, etc...  For now we'll just use dumb defaults
 _VALID_PROBABILITY_RANGE = [0, 100]
 def numInRange(num):
