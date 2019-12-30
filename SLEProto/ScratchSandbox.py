@@ -2,9 +2,10 @@
     from https://en.wikipedia.org/wiki/Subjective_logic
 """
 from random import randint
+from random import choice
 
 
-props = ("The sky is red.", "Socrates was a man.", "2+2=4", "Icecream tastes good.", "It's not the case that I'm not going bald.", "The human torch was denied a bank loan.")
+props = ["The sky is red.", "Socrates was a man.", "2+2=4", "Icecream tastes good.", "It's not the case that I'm not going bald.", "The human torch was denied a bank loan."]
 
 #binomial opinion modeling
 #x in X can only take on True or False
@@ -49,7 +50,7 @@ class Opinion:
             self.src = args[5]
 
     def __str__(self):
-        return "is {}certain about {}, from {}.".format(self.bx if self.bx > self.dx else self.dx, self.x, self.src)
+        return "{} certain about {}, from {}.".format(self.bx if self.bx > self.dx else self.dx, self.x, self.src)
 
     def isCoherent(self):
         return self.isComplete() and self.allInRange()
@@ -70,10 +71,24 @@ class Actor():
         return self.name in actors
 
     def stateOpinions(self):
-        return [self.name + " " + str(o) for o in self.opinions]
+        if self.name == "Me" or self.name == "me": self.name = "I"
+        x = [print(self.name + " {} ".format("am" if self.name == "I" else "is") + str(o)) for o in self.opinions]
 
     def addOpinion(self, opi):
         self.opinions.append(opi)
+
+props = {"the sky is red":False, "Socrates was a man":True, "2+2=4":True, "icecream tastes good":True, "it's not the case that I'm not going bald":False, "the human torch was denied a bank loan":False, "this is a sentence":True, "this is not a sentence":False}
+
+numOpinions = len(props)
+oprange = range(0, numOpinions)
+opinionSet = [[],[],[],[],[],[]]
+opinionSet[0] = [x*10 for x in oprange]
+opinionSet[1] = [100-(x*10) for x in oprange]
+opinionSet[2] = [0 for x in oprange]
+opinionSet[3] = [props[list(props.keys())[x]] for x in oprange]
+opinionSet[4] = list(props.keys())
+opinionSet[5] = [choice(sources) for x in oprange]
+#print(opinionSet)
 
 
 ###########runtime utilities and statements###########
@@ -89,11 +104,13 @@ domainLen = len(props)
 #Test stuff
 #I learned that the sky is red from Donald Trump
 me = Actor("Me")
-o1 = opinion(bx=75,ux=25,x=props[0],src="Donald Trump")
 
-me.addOpinion(o1)
+#assume all columns in opinionSet are the same length
+numRows = len(opinionSet[0])
+os = opinionSet
+x = [me.addOpinion(opinion(os[0][r],os[1][r],os[2][r],os[3][r],os[4][r],os[5][r])) for r in range(0,numRows)]
+
 print(me.stateOpinions())
-print(o1.isCoherent())
 
 
 
