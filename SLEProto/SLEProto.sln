@@ -7,6 +7,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SLEProto", "SLEProto.pyproj
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WebScraper", "..\PythonApplication1\WebScraper.pyproj", "{C475F7C0-9E2B-426A-BDF9-204CEE5CF0B5}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Tools", "..\Tools\Tools.pyproj", "{8C9CED62-C22F-44A4-B3F8-3E566E8530E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,8 @@ Global
 		{70453A5E-F2CE-453E-8626-BDB0BE92E274}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C475F7C0-9E2B-426A-BDF9-204CEE5CF0B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C475F7C0-9E2B-426A-BDF9-204CEE5CF0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C9CED62-C22F-44A4-B3F8-3E566E8530E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C9CED62-C22F-44A4-B3F8-3E566E8530E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

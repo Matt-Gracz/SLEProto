@@ -1,7 +1,17 @@
-from scrapingtools import simple_get, parse_raw_html, log_error, get_all_link_refs
+from scrapingtools import get_all_global_links
+#left off here: need to make sure we're getting links correctly; test get_all_links local and global
+# versions against each other and manually inspect links inside small webpages
 
-raw_html = simple_get("https://stackoverflow.com/questions/19168220/scrape-internal-links-with-beautiful-soup")
-html = parse_raw_html(raw_html)
-links = get_all_link_refs(html)
-x = [print(link) for link in links if str(link).startswith('/')]
+
+url = "https://stackoverflow.com/questions/19168220/scrape-internal-links-with-beautiful-soup"
+url = "https://riverbend.appfolio.com/connect/users/sign_in"
+
+#raw_html = simple_get(url)
+#html = parse_raw_html(raw_html)
+#links = (html)
+#x = [print(link) for link in links if str(link).startswith('/')]
+
+local_links = get_all_global_links(url)
+printlist(local_links)
+
 

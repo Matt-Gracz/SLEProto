@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>c475f7c0-9e2b-426a-bdf9-204cee5cf0b5</ProjectGuid>
-    <ProjectHome>
-    </ProjectHome>
-    <StartupFile>__init__.py</StartupFile>
-    <SearchPath>..\..\SLEProto</SearchPath>
+    <ProjectGuid>8c9ced62-c22f-44a4-b3f8-3e566e8530e1</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Tools.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>WebScraper</Name>
-    <RootNamespace>PythonApplication1</RootNamespace>
+    <Name>Tools</Name>
+    <RootNamespace>Tools</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,10 +24,7 @@
     <Compile Include="__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="scrapingtools.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="error_log.txt" />
+    <Compile Include="Tools.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
