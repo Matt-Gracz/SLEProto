@@ -82,23 +82,36 @@ def get_all_link_refs(html, parent_url = None):
                  linkrefs will be of the form http[s]://{}.{}/{}
         ERROR:   An empty list
     """
+    #ensure parent_url is the actual domain and not a webpage in the domain:
+    if parent_url is not None:
+        domain = parent_url[:parent_url.find("/", parent_url.rfind("."))]
+    else:
+        domain = None
+
     linkrefs = []
+
+
+
+
     try:
         #TODO: clean up this code; it's hard to read
         for link in [link.get('href') for link in html.find_all('a')]:
             if link is not None:
-                if url is not None:
+                if domain is not None:
                     if not link.startswith("http"):
+                        print("link {}".format(link))
                         if not link.startswith("/"):
                             link = "/" + link
-                        link = parent_url + link
+                        link = domain + link
+                        
                 linkrefs.append(link)
     except Exception as e:
+        log_error(str(e))
         linkrefs = []
     finally:
         return linkrefs
 
-def get_all_global_links(url, force_global = False):
+def get_all_global_links(url, force_global = True):
     """
         In:
             url: string of webpage to scrape links from
@@ -111,4 +124,4 @@ def get_all_global_links(url, force_global = False):
     """
     raw_html = simple_get(url)
     html = parse_raw_html(raw_html)
-    return get_all_link_refs(html, url if force_global is True else None)
+    return get_all_link_refs(html, url if force_global else None)
