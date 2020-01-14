@@ -89,10 +89,6 @@ def get_all_link_refs(html, parent_url = None):
         domain = None
 
     linkrefs = []
-
-
-
-
     try:
         #TODO: clean up this code; it's hard to read
         for link in [link.get('href') for link in html.find_all('a')]:

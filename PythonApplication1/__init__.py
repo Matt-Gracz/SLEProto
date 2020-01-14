@@ -7,7 +7,7 @@ from scrapingtools import get_all_global_links
 url = "https://stackoverflow.com/questions/19168220/scrape-internal-links-with-beautiful-soup"
 url = "https://riverbend.appfolio.com/connect/users/sign_in"
 url = "https://en.wikipedia.org/wiki/Affirmative_conclusion_from_a_negative_premise"
-
+url = "https://github.com/Matt-Gracz?tab=repositories"
 #raw_html = simple_get(url)
 #html = parse_raw_html(raw_html)
 #links = (html)
